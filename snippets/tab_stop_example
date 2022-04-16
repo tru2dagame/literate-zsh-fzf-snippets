@@ -1,0 +1,3 @@
+#!/bin/zsh
+# example echo tab-stop
+echo "${msg1}" "${msg2}"
