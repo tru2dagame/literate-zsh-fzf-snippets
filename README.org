@@ -1,2 +1,36 @@
 * Demo
 [[./demo.gif]]
+
+* Snippets
+:PROPERTIES:
+:header-args: :tangle (concat "./snippets/" (replace-regexp-in-string " " "_" (org-entry-get nil "ITEM")))
+:END:
+*** tab stop example
+#+begin_src sh
+#!/bin/zsh
+# example echo tab-stop
+echo "${msg1}" "${msg2}"
+#+end_src
+
+*** aws clear envs example
+#+begin_src sh
+#!/bin/zsh
+# aws clear envs
+export AWS_PROFILE=
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_ACCESS_KEY=
+export AWS_DEFAULT_REGION=
+export AWS_REGION=
+#+end_src
+
+*** print all the color
+#+begin_src sh
+#!/bin/zsh
+# print all ansi color
+for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
+#+end_src
+
+* Local Variables                                                               :noexport:
+# Local Variables:
+# eval: (add-hook 'after-save-hook (lambda ()(org-babel-tangle)) nil t)
+# End:
