@@ -5,6 +5,10 @@ export PATH=$SNIPPETS_PATH:$PATH
 chmod -R +x $SNIPPETS_PATH/*
 FZF_SNIPPETS_BINDKEYS=${FZF_SNIPPETS_BINDKEYS:-'^[x'}
 
+if [ ! -d "$SNIPPETS_PATH" ]; then
+  mkdir -p "$SNIPPETS_PATH"
+fi
+
 _tru_fzf-snippet() {
     local results preview key rest filename
 
