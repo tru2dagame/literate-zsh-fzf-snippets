@@ -3,7 +3,7 @@
 SNIPPETS_PATH=${SNIPPETS_PATH:-"$HOME/.config/literate-zsh-fzf-snippets/snippets"}
 export PATH=$SNIPPETS_PATH:$PATH
 chmod -R +x $SNIPPETS_PATH/*
-FZF_SNIPPETS_BINDKEY=${FZF_SNIPPETS_BINDKEY:-'^[x'}
+FZF_SNIPPETS_BINDKEYS=${FZF_SNIPPETS_BINDKEYS:-'^[x'}
 
 _tru_fzf-snippet() {
     local results preview key rest filename

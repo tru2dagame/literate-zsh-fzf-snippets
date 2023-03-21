@@ -4,7 +4,7 @@
 #+begin_src shell
 # set env
 export SNIPPETS_PATH=$HOME/.config/uid.literate-devops/snippets
-export FZF_SNIPPETS_BINDKEY=( "^[x" "^[^[" )
+export FZF_SNIPPETS_BINDKEYS=( "^[x" "^[^[" )
 #+end_src
 
 * Snippets
