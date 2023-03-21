@@ -4,7 +4,12 @@
 #+begin_src shell
 # set env
 export SNIPPETS_PATH=$HOME/.config/uid.literate-devops/snippets
-export FZF_SNIPPETS_BINDKEYS=( "^[x" "^[^[" )
+
+# Set two bindkeys using space as a delimiter
+# The following keys will be bound to the _tru_fzf-snippet function:
+# - ^[^[ (esc esc)
+# - ^[x (M-x)
+export FZF_SNIPPETS_BINDKEYS='^[x ^[^['
 #+end_src
 
 * Snippets

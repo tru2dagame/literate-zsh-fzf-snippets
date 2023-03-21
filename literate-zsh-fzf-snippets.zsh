@@ -40,6 +40,13 @@ _tru_fzf-snippet() {
     esac
 }
 zle -N _tru_fzf-snippet
-for key in "${FZF_SNIPPETS_BINDKEYS[@]}"; do
-    bindkey $key _tru_fzf-snippet
-done
+
+_tru_fzf-snippet_bind_keys() {
+    local IFS=' '
+    setopt localoptions shwordsplit
+
+    for key in $FZF_SNIPPETS_BINDKEYS; do
+        bindkey $key _tru_fzf-snippet
+    done
+}
+_tru_fzf-snippet_bind_keys
