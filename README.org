@@ -3,8 +3,9 @@
 
 * Snippets
 :PROPERTIES:
-:header-args: :tangle (concat "./snippets/" (replace-regexp-in-string " " "_" (org-entry-get nil "ITEM")))
+:header-args: :tangle (concat (or (getenv "SNIPPETS_PATH") "./snippets") "/" (replace-regexp-in-string " " "_" (org-entry-get nil "ITEM")))
 :END:
+
 *** tab stop example
 #+begin_src sh
 #!/bin/zsh
