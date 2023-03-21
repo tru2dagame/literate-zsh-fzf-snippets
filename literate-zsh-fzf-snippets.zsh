@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 SNIPPETS_PATH=${SNIPPETS_PATH:-"$HOME/.config/literate-zsh-fzf-snippets/snippets"}
-PATH=$SNIPPETS_PATH:$PATH
+export PATH=$SNIPPETS_PATH:$PATH
 chmod -R +x $SNIPPETS_PATH/*
 FZF_SNIPPETS_BINDKEY=${FZF_SNIPPETS_BINDKEY:-'^[x'}
 

@@ -1,6 +1,12 @@
 * Demo
 [[./demo.gif]]
 
+#+begin_src shell
+# set env
+export SNIPPETS_PATH=$HOME/.config/uid.literate-devops/snippets
+export FZF_SNIPPETS_BINDKEY=( "^[x" "^[^[" )
+#+end_src
+
 * Snippets
 :PROPERTIES:
 :header-args: :tangle (concat (or (getenv "SNIPPETS_PATH") "./snippets") "/" (replace-regexp-in-string " " "_" (org-entry-get nil "ITEM")))
