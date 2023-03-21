@@ -15,7 +15,8 @@ _tru_fzf-snippet() {
     # merge filename and tags into single line
     results=$(find "$SNIPPETS_PATH" -type f -print0 | xargs -0 awk 'FNR==2 {split(FILENAME,a,"/"); print $0 ",| " a[length(a)]}')
 
-    preview=$(echo $results | column -s ',' -t | fzf -p 90% -i --ansi --bind ctrl-/:toggle-preview "$@" --preview-window up:wrap --preview "echo {} | cut -f2 -d'|' | tr -d ' ' | xargs -I % bat --color=always --language bash --plain $SNIPPETS_PATH/%" --expect=alt-enter)
+    preview=$(echo $results | column -s ',' -t | fzf -p 90% -i --ansi --bind ctrl-/:toggle-preview "$@" --preview-window up:wrap --preview "echo {} | cut -f2 -d'|' | tr -d ' ' | xargs -I % bat --color=always --language bash --plain $SNIPPETS_PATH/%" --expect=alt-enter,enter)
+
     if [  -z "$preview" ]; then
         return
     fi
@@ -28,7 +29,7 @@ _tru_fzf-snippet() {
         alt-enter)
             BUFFER=" $(cat $SNIPPETS_PATH/$filename | sed 1,2d)"
             ;;
-        ,*)
+        *)
             if [[ $(cat $SNIPPETS_PATH/$filename | sed 1,2d | wc -l | bc) -lt 8 ]]; then
                 BUFFER=" $(cat $SNIPPETS_PATH/$filename | sed 1,2d)"
             else
