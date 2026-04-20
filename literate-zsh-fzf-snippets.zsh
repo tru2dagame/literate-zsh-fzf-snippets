@@ -13,7 +13,7 @@ _tru_fzf-snippet() {
     local results preview key rest filename
 
     # merge filename and tags into single line
-    results=$(find "$SNIPPETS_PATH" -type f -print0 | xargs -0 awk 'FNR==2 {split(FILENAME,a,"/"); print $0 ",| " a[length(a)]}')
+    results=$(find "$SNIPPETS_PATH" -maxdepth 1 -type f ! -name '.*' ! -name '*.md' ! -name '*.log' -print0 | xargs -0 awk 'FNR==2 {split(FILENAME,a,"/"); print $0 ",| " a[length(a)]}')
 
     preview=$(echo $results | column -s ',' -t | fzf -p 90% -i --ansi --bind ctrl-/:toggle-preview "$@" --preview-window up:wrap --preview "echo {} | cut -f2 -d'|' | tr -d ' ' | xargs -I % bat --color=always --language bash --plain $SNIPPETS_PATH/%" --expect=alt-enter,enter)
 
